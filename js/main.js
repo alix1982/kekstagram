@@ -1,24 +1,20 @@
-let integerRndRange = function (firstInteger = 1, lastInteger = 100) {
-  let integerRnd;
-  if (firstInteger < 0 || lastInteger < 0 || lastInteger<firstInteger) {
+const integerRndRange = (firstInteger = 1, lastInteger = 100) => {
+  if (firstInteger < 0 || lastInteger < 0) {
     alert('Ошибка диапазона, включен диапазон по умолчанию [1; 100]')
     firstInteger = 1;
     lastInteger = 100;
   }
+
+  (lastInteger<firstInteger) && ([firstInteger, lastInteger] = [lastInteger, firstInteger]);
+
   firstInteger = Math.ceil(firstInteger);
   lastInteger = Math.floor(lastInteger);
-  integerRnd = Math.round(Math.random() * (lastInteger - firstInteger) + firstInteger);
-  // console.log(firstInteger);
-  // console.log(lastInteger);
-  // console.log(integerRnd);
-  return integerRnd;
+
+  return Math.round(Math.random() * (lastInteger - firstInteger) + firstInteger);
 }
 integerRndRange(1, 2);
 
-let checkLengthString = function (string = "комментарий", stringLength = 50) {
-  let isStringLendth = false;
-  (string.length < stringLength) ? isStringLendth = true : isStringLendth = false
-  // console.log("Комментарий: \"" + string + "\"; допустимая длина строки: " + stringLength + "; символов в комментарии: " + string.length + "; Строка удовлетворяет условиям: " + isStringLendth);
-  return isStringLendth;
+const checkLengthString = (string = "комментарий", stringLength = 50) => {
+  return (string.length <= stringLength);
 }
-checkLengthString("Что-то прокомментировали", 20);
+checkLengthString("Что-то прокомментировали", 30);
