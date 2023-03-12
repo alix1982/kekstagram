@@ -14,7 +14,7 @@ const integerRndRange = (firstInteger = 1, lastInteger = 100) => {
 }
 integerRndRange(1, 2);
 
-const checkLengthString = (string = "комментарий", stringLength = 50) => {
+const checkLengthString = (string = 'комментарий', stringLength = 50) => {
   return (string.length <= stringLength);
 }
-checkLengthString("Что-то прокомментировали", 30);
+checkLengthString('Что-то прокомментировали', 30);
